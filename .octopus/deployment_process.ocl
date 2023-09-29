@@ -40,7 +40,11 @@ step "run-a-script-docker" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "docker ps"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                docker version
+                & 'C:\Program Files\Docker\Docker\DockerCli.exe' -SwitchDaemon
+                docker ps
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
