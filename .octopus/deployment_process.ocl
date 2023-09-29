@@ -32,3 +32,17 @@ step "run-a-script" {
         }
     }
 }
+
+step "run-a-script-docker" {
+    name = "Run a Script (docker)"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "docker ps"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
