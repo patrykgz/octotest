@@ -42,7 +42,6 @@ step "run-a-script-docker" {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 docker version
-                & 'C:\Program Files\Docker\Docker\DockerCli.exe' -SwitchDaemon
                 docker ps
                 EOT
             Octopus.Action.Script.ScriptSource = "Inline"
